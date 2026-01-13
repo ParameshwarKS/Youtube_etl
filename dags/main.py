@@ -30,7 +30,7 @@ with DAG(
     default_args = default_args,
     description = 'DAG to produce JSON file with raw data',
     schedule = '0 14 * * *',
-    catchup = False 
+    catchup = False, 
 ) as dag_produce:
     
     playlist_id = get_playlist_id()
@@ -50,7 +50,7 @@ with DAG(
     default_args = default_args,
     description = 'DAG to process JSON file and insert data into stagging and core schemas',
     schedule = None,
-    catchup = False 
+    catchup = False, 
 ) as dag_update:
     
     update_staging = staging_table()
@@ -68,7 +68,7 @@ with DAG(
     default_args = default_args,
     description = 'DAG to check the data quality on both layers in the db',
     schedule = None,
-    catchup = False 
+    catchup = False, 
 ) as dag_quality:
     
     soda_validate_staging = yt_elt_data_quality(staging_schema)
