@@ -1,0 +1,29 @@
+[2026-01-13T17:00:55.993+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-13T17:00:56.021+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_quality.soda_test_staging manual__2026-01-13T17:00:54.673530+00:00 [queued]>
+[2026-01-13T17:00:56.034+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_quality.soda_test_staging manual__2026-01-13T17:00:54.673530+00:00 [queued]>
+[2026-01-13T17:00:56.035+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-01-13T17:00:56.053+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): soda_test_staging> on 2026-01-13 17:00:54.673530+00:00
+[2026-01-13T17:00:56.060+0000] {standard_task_runner.py:63} INFO - Started process 101 to run task
+[2026-01-13T17:00:56.065+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'data_quality', 'soda_test_staging', 'manual__2026-01-13T17:00:54.673530+00:00', '--job-id', '153', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpfeho816t']
+[2026-01-13T17:00:56.067+0000] {standard_task_runner.py:91} INFO - Job 153: Subtask soda_test_staging
+[2026-01-13T17:00:56.162+0000] {task_command.py:426} INFO - Running <TaskInstance: data_quality.soda_test_staging manual__2026-01-13T17:00:54.673530+00:00 [running]> on host 267ad21334fe
+[2026-01-13T17:00:56.325+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='data@engineers.com' AIRFLOW_CTX_DAG_OWNER='dataengineers' AIRFLOW_CTX_DAG_ID='data_quality' AIRFLOW_CTX_TASK_ID='soda_test_staging' AIRFLOW_CTX_EXECUTION_DATE='2026-01-13T17:00:54.673530+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-01-13T17:00:54.673530+00:00'
+[2026-01-13T17:00:56.327+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-01-13T17:00:56.369+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-01-13T17:00:56.370+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'soda scan -d pg_datasource -c /opt/airflow/include/soda/configuration.yml -v SCHEMA=staging /opt/airflow/include/soda/checks.yml']
+[2026-01-13T17:00:56.387+0000] {subprocess.py:86} INFO - Output:
+[2026-01-13T17:00:59.772+0000] {subprocess.py:93} INFO - [17:00:59] Soda Core 3.3.14
+[2026-01-13T17:01:00.059+0000] {subprocess.py:93} INFO - [17:01:00] Scan summary:
+[2026-01-13T17:01:00.060+0000] {subprocess.py:93} INFO - [17:01:00] 4/4 checks PASSED:
+[2026-01-13T17:01:00.061+0000] {subprocess.py:93} INFO - [17:01:00]     yt_api in pg_datasource
+[2026-01-13T17:01:00.062+0000] {subprocess.py:93} INFO - [17:01:00]       Check for Like_Count greater than Video_Views [PASSED]
+[2026-01-13T17:01:00.062+0000] {subprocess.py:93} INFO - [17:01:00]       Check for Like_Count greater than Video_Views [PASSED]
+[2026-01-13T17:01:00.063+0000] {subprocess.py:93} INFO - [17:01:00]       missing_count("Video_ID") = 0 [PASSED]
+[2026-01-13T17:01:00.063+0000] {subprocess.py:93} INFO - [17:01:00]       duplicate_count("Video_ID") = 0 [PASSED]
+[2026-01-13T17:01:00.064+0000] {subprocess.py:93} INFO - [17:01:00] All is good. No failures. No warnings. No errors.
+[2026-01-13T17:01:00.876+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-01-13T17:01:00.960+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-01-13T17:01:01.028+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=data_quality, task_id=soda_test_staging, run_id=manual__2026-01-13T17:00:54.673530+00:00, execution_date=20260113T170054, start_date=20260113T170056, end_date=20260113T170101
+[2026-01-13T17:01:01.081+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-01-13T17:01:01.108+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-01-13T17:01:01.114+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

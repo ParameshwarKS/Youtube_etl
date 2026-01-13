@@ -43,6 +43,7 @@ with DAG(
         trigger_dag_id = "update_db",
         reset_dag_run=True,
         wait_for_completion=False,
+        poke_interval=30,
     )
 
     playlist_id >> video_ids >> extracted_data >> save_to_json_task >> trigger_update_db

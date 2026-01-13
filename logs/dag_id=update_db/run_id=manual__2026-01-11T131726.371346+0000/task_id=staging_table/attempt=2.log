@@ -1,0 +1,92 @@
+[2026-01-13T17:07:52.774+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-13T17:07:54.510+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: update_db.staging_table manual__2026-01-11T13:17:26.371346+00:00 [queued]>
+[2026-01-13T17:07:54.838+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: update_db.staging_table manual__2026-01-11T13:17:26.371346+00:00 [queued]>
+[2026-01-13T17:07:54.839+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2026-01-13T17:07:55.009+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): staging_table> on 2026-01-11 13:17:26.371346+00:00
+[2026-01-13T17:07:55.060+0000] {standard_task_runner.py:63} INFO - Started process 339 to run task
+[2026-01-13T17:07:55.114+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'update_db', 'staging_table', 'manual__2026-01-11T13:17:26.371346+00:00', '--job-id', '197', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpk29v_lrf']
+[2026-01-13T17:07:55.118+0000] {standard_task_runner.py:91} INFO - Job 197: Subtask staging_table
+[2026-01-13T17:07:55.472+0000] {task_command.py:426} INFO - Running <TaskInstance: update_db.staging_table manual__2026-01-11T13:17:26.371346+00:00 [running]> on host 267ad21334fe
+[2026-01-13T17:07:56.452+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='data@engineers.com' AIRFLOW_CTX_DAG_OWNER='dataengineers' AIRFLOW_CTX_DAG_ID='update_db' AIRFLOW_CTX_TASK_ID='staging_table' AIRFLOW_CTX_EXECUTION_DATE='2026-01-11T13:17:26.371346+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-01-11T13:17:26.371346+00:00'
+[2026-01-13T17:07:56.460+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-01-13T17:08:01.087+0000] {base.py:84} INFO - Using connection ID 'postgres_db_yt_elt' for task execution.
+[2026-01-13T17:08:01.181+0000] {data_loading.py:11} INFO - Processing file: Youtube_data_2026-01-13.json
+[2026-01-13T17:08:01.214+0000] {base.py:84} INFO - Using connection ID 'postgres_db_yt_elt' for task execution.
+[2026-01-13T17:08:01.245+0000] {base.py:84} INFO - Using connection ID 'postgres_db_yt_elt' for task execution.
+[2026-01-13T17:08:01.354+0000] {data_modification.py:80} INFO - Updated row with Video_ID: _ii08GBoIcY
+[2026-01-13T17:08:01.398+0000] {data_modification.py:80} INFO - Updated row with Video_ID: 90NCGxfoQMY
+[2026-01-13T17:08:01.458+0000] {data_modification.py:80} INFO - Updated row with Video_ID: ewLJUvQbOu4
+[2026-01-13T17:08:01.522+0000] {data_modification.py:80} INFO - Updated row with Video_ID: 4ztHU8PD8pg
+[2026-01-13T17:08:01.594+0000] {data_modification.py:80} INFO - Updated row with Video_ID: ylpkTn08sww
+[2026-01-13T17:08:01.661+0000] {data_modification.py:80} INFO - Updated row with Video_ID: fECgl2A74bE
+[2026-01-13T17:08:01.717+0000] {data_modification.py:80} INFO - Updated row with Video_ID: PVuhM1Mo4ic
+[2026-01-13T17:08:01.856+0000] {data_modification.py:80} INFO - Updated row with Video_ID: K93eM41jWXg
+[2026-01-13T17:08:01.939+0000] {data_modification.py:80} INFO - Updated row with Video_ID: U4oqzTLXv78
+[2026-01-13T17:08:01.977+0000] {data_modification.py:80} INFO - Updated row with Video_ID: JZGaLVbgfHs
+[2026-01-13T17:08:02.017+0000] {data_modification.py:80} INFO - Updated row with Video_ID: SDPKsYBBQD4
+[2026-01-13T17:08:02.059+0000] {data_modification.py:80} INFO - Updated row with Video_ID: W8whOOHnzhI
+[2026-01-13T17:08:02.112+0000] {data_modification.py:80} INFO - Updated row with Video_ID: M8lvhk2nH7w
+[2026-01-13T17:08:02.173+0000] {data_modification.py:80} INFO - Updated row with Video_ID: pYYtYG6hU9w
+[2026-01-13T17:08:02.237+0000] {data_modification.py:80} INFO - Updated row with Video_ID: SgHmsC_y0cg
+[2026-01-13T17:08:02.315+0000] {data_modification.py:80} INFO - Updated row with Video_ID: of3IaC8hZpo
+[2026-01-13T17:08:02.366+0000] {data_modification.py:80} INFO - Updated row with Video_ID: i3FYVpbmpdE
+[2026-01-13T17:08:02.500+0000] {data_modification.py:80} INFO - Updated row with Video_ID: 6ubCFPOwFmk
+[2026-01-13T17:08:02.565+0000] {data_modification.py:80} INFO - Updated row with Video_ID: IztyzM0PLTs
+[2026-01-13T17:08:02.615+0000] {data_modification.py:80} INFO - Updated row with Video_ID: 4z7q04j6Ltc
+[2026-01-13T17:08:02.647+0000] {data_modification.py:80} INFO - Updated row with Video_ID: mErBlm0yzZA
+[2026-01-13T17:08:02.684+0000] {data_modification.py:80} INFO - Updated row with Video_ID: r5jCvtZyVwE
+[2026-01-13T17:08:02.754+0000] {data_modification.py:80} INFO - Updated row with Video_ID: fgMLXYh3PQ0
+[2026-01-13T17:08:02.791+0000] {data_modification.py:80} INFO - Updated row with Video_ID: r0flzJse1Ss
+[2026-01-13T17:08:02.833+0000] {data_modification.py:80} INFO - Updated row with Video_ID: pO3mZsGXcHA
+[2026-01-13T17:08:02.862+0000] {data_modification.py:80} INFO - Updated row with Video_ID: 8l_6JRwt3bA
+[2026-01-13T17:08:02.910+0000] {data_modification.py:80} INFO - Updated row with Video_ID: 1VBQmmdRQfM
+[2026-01-13T17:08:02.952+0000] {data_modification.py:80} INFO - Updated row with Video_ID: t1E4qAVMdqw
+[2026-01-13T17:08:02.995+0000] {data_modification.py:80} INFO - Updated row with Video_ID: T2VGOEpyV2w
+[2026-01-13T17:08:03.029+0000] {data_modification.py:80} INFO - Updated row with Video_ID: qPSn4jpJ0OA
+[2026-01-13T17:08:03.078+0000] {data_modification.py:80} INFO - Updated row with Video_ID: 7nzDoH-SOLw
+[2026-01-13T17:08:03.117+0000] {data_modification.py:80} INFO - Updated row with Video_ID: jdrwZfeTd-o
+[2026-01-13T17:08:03.154+0000] {data_modification.py:80} INFO - Updated row with Video_ID: wbmB_bydA14
+[2026-01-13T17:08:03.175+0000] {data_modification.py:80} INFO - Updated row with Video_ID: IGraly_Lvvg
+[2026-01-13T17:08:03.210+0000] {data_modification.py:80} INFO - Updated row with Video_ID: 3ihrsGN266k
+[2026-01-13T17:08:03.284+0000] {data_modification.py:80} INFO - Updated row with Video_ID: gh9ef6S0ml0
+[2026-01-13T17:08:03.344+0000] {data_modification.py:80} INFO - Updated row with Video_ID: Rjan2zpCyz0
+[2026-01-13T17:08:03.409+0000] {data_modification.py:80} INFO - Updated row with Video_ID: x4jas5FILfU
+[2026-01-13T17:08:03.523+0000] {data_modification.py:80} INFO - Updated row with Video_ID: Z0-8F8OF5JI
+[2026-01-13T17:08:03.553+0000] {data_modification.py:80} INFO - Updated row with Video_ID: tT21NspKJyQ
+[2026-01-13T17:08:03.588+0000] {data_modification.py:80} INFO - Updated row with Video_ID: 1RwUAHmxVGE
+[2026-01-13T17:08:03.649+0000] {data_modification.py:80} INFO - Updated row with Video_ID: TY1RVNihX7A
+[2026-01-13T17:08:03.700+0000] {data_modification.py:80} INFO - Updated row with Video_ID: M4-iqESGPns
+[2026-01-13T17:08:03.766+0000] {data_modification.py:80} INFO - Updated row with Video_ID: mMuL8mptLSs
+[2026-01-13T17:08:03.815+0000] {data_modification.py:80} INFO - Updated row with Video_ID: QzWzmRBxUYQ
+[2026-01-13T17:08:03.858+0000] {data_modification.py:80} INFO - Updated row with Video_ID: Hq5FDA2JPss
+[2026-01-13T17:08:03.887+0000] {data_modification.py:80} INFO - Updated row with Video_ID: elY9zCRbs18
+[2026-01-13T17:08:03.923+0000] {data_modification.py:80} INFO - Updated row with Video_ID: hXA1qFQMRiw
+[2026-01-13T17:08:03.963+0000] {data_modification.py:80} INFO - Updated row with Video_ID: VWbrE0q0IXc
+[2026-01-13T17:08:03.996+0000] {data_modification.py:80} INFO - Updated row with Video_ID: u2kBe9tbUsI
+[2026-01-13T17:08:04.031+0000] {data_modification.py:80} INFO - Updated row with Video_ID: T9747XBa45A
+[2026-01-13T17:08:04.066+0000] {data_modification.py:80} INFO - Updated row with Video_ID: RQXdny94Vek
+[2026-01-13T17:08:04.103+0000] {data_modification.py:80} INFO - Updated row with Video_ID: DxJn08jU42k
+[2026-01-13T17:08:04.140+0000] {data_modification.py:80} INFO - Updated row with Video_ID: CAPdiQDrKg8
+[2026-01-13T17:08:04.163+0000] {data_modification.py:80} INFO - Updated row with Video_ID: 2i6OU_ruNq0
+[2026-01-13T17:08:04.215+0000] {data_modification.py:80} INFO - Updated row with Video_ID: PZMHwRb5AAw
+[2026-01-13T17:08:04.256+0000] {data_modification.py:80} INFO - Updated row with Video_ID: zoMs9WHT3gw
+[2026-01-13T17:08:04.300+0000] {data_modification.py:80} INFO - Updated row with Video_ID: ATiwq1pr7uk
+[2026-01-13T17:08:04.382+0000] {data_modification.py:80} INFO - Updated row with Video_ID: oNizmAuflyU
+[2026-01-13T17:08:04.460+0000] {data_modification.py:80} INFO - Updated row with Video_ID: j73KW1-5Elg
+[2026-01-13T17:08:04.502+0000] {data_modification.py:80} INFO - Updated row with Video_ID: Ol_ADWAq1VE
+[2026-01-13T17:08:04.554+0000] {data_modification.py:80} INFO - Updated row with Video_ID: TDrIBFgb6hE
+[2026-01-13T17:08:04.636+0000] {data_modification.py:80} INFO - Updated row with Video_ID: VbG_J05HnmE
+[2026-01-13T17:08:04.703+0000] {data_modification.py:80} INFO - Updated row with Video_ID: WgCavqDntlQ
+[2026-01-13T17:08:04.785+0000] {data_modification.py:80} INFO - Updated row with Video_ID: NF5AvlWxmo8
+[2026-01-13T17:08:04.826+0000] {data_modification.py:80} INFO - Updated row with Video_ID: RqrviWQ0qQE
+[2026-01-13T17:08:04.892+0000] {data_modification.py:80} INFO - Updated row with Video_ID: WQBc2mY9Jng
+[2026-01-13T17:08:04.948+0000] {data_modification.py:80} INFO - Updated row with Video_ID: beYV4yDvRNM
+[2026-01-13T17:08:05.013+0000] {data_modification.py:80} INFO - Updated row with Video_ID: MUoaF9b3nCU
+[2026-01-13T17:08:05.592+0000] {data_modification.py:80} INFO - Updated row with Video_ID: ZNg6cFcBISw
+[2026-01-13T17:08:05.593+0000] {dwh.py:40} INFO - staging table update completed
+[2026-01-13T17:08:05.596+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-01-13T17:08:05.752+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-01-13T17:08:05.799+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=update_db, task_id=staging_table, run_id=manual__2026-01-11T13:17:26.371346+00:00, execution_date=20260111T131726, start_date=20260113T170754, end_date=20260113T170805
+[2026-01-13T17:08:06.512+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-01-13T17:08:06.844+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-01-13T17:08:06.906+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
