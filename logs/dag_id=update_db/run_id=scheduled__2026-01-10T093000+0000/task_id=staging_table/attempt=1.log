@@ -1,0 +1,45 @@
+[2026-01-11T12:59:10.066+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-11T12:59:10.122+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: update_db.staging_table scheduled__2026-01-10T09:30:00+00:00 [queued]>
+[2026-01-11T12:59:10.134+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: update_db.staging_table scheduled__2026-01-10T09:30:00+00:00 [queued]>
+[2026-01-11T12:59:10.135+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-01-11T12:59:10.188+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): staging_table> on 2026-01-10 09:30:00+00:00
+[2026-01-11T12:59:10.197+0000] {standard_task_runner.py:63} INFO - Started process 130 to run task
+[2026-01-11T12:59:10.201+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'update_db', 'staging_table', 'scheduled__2026-01-10T09:30:00+00:00', '--job-id', '82', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpp4yt6nir']
+[2026-01-11T12:59:10.203+0000] {standard_task_runner.py:91} INFO - Job 82: Subtask staging_table
+[2026-01-11T12:59:10.333+0000] {task_command.py:426} INFO - Running <TaskInstance: update_db.staging_table scheduled__2026-01-10T09:30:00+00:00 [running]> on host b01b5f90bb7d
+[2026-01-11T12:59:10.485+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='data@engineers.com' AIRFLOW_CTX_DAG_OWNER='dataengineers' AIRFLOW_CTX_DAG_ID='update_db' AIRFLOW_CTX_TASK_ID='staging_table' AIRFLOW_CTX_EXECUTION_DATE='2026-01-10T09:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-10T09:30:00+00:00'
+[2026-01-11T12:59:10.486+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-01-11T12:59:10.565+0000] {base.py:84} INFO - Using connection ID 'postgres_db_yt_elt' for task execution.
+[2026-01-11T12:59:10.596+0000] {data_loading.py:11} INFO - Processing file: Youtube_data_2026-01-11
+[2026-01-11T12:59:10.599+0000] {dwh.py:43} ERROR - An error occured during the update of staging table: the JSON object must be str, bytes or bytearray, not TextIOWrapper
+[2026-01-11T12:59:10.600+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-01-11T12:59:10.601+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/datawarehouse/dwh.py", line 44, in staging_table
+    raise e
+  File "/opt/airflow/dags/datawarehouse/dwh.py", line 19, in staging_table
+    YT_data = load_path()
+  File "/opt/airflow/dags/datawarehouse/data_loading.py", line 13, in load_path
+    data = json.loads(raw_data)
+  File "/usr/local/lib/python3.10/json/__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not TextIOWrapper
+[2026-01-11T12:59:10.624+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=update_db, task_id=staging_table, run_id=scheduled__2026-01-10T09:30:00+00:00, execution_date=20260110T093000, start_date=20260111T125910, end_date=20260111T125910
+[2026-01-11T12:59:10.673+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 82 for task staging_table (the JSON object must be str, bytes or bytearray, not TextIOWrapper; 130)
+[2026-01-11T12:59:10.696+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-01-11T12:59:10.737+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-01-11T12:59:10.781+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
