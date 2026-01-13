@@ -9500,3 +9500,111 @@ ImportError: cannot import name 'TriggerDagRunOperation' from 'airflow.operators
 [2026-01-13T16:41:58.658+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:41:58.658+0000] {dag.py:3954} INFO - Setting next_dagrun for produce_json to 2026-01-13 08:30:00+00:00, run_after=2026-01-14 08:30:00+00:00
 [2026-01-13T16:41:58.660+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:41:58.660+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
 [2026-01-13T16:41:58.698+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.289 seconds
+[2026-01-13T16:42:29.011+0000] {processor.py:161} INFO - Started process (PID=383) to work on /opt/airflow/dags/main.py
+[2026-01-13T16:42:29.013+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2026-01-13T16:42:29.015+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:42:29.015+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2026-01-13T16:42:29.150+0000] {processor.py:840} INFO - DAG(s) 'produce_json', 'update_db', 'data_quality' retrieved from /opt/airflow/dags/main.py
+[2026-01-13T16:42:29.184+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:42:29.184+0000] {dag.py:3096} INFO - Sync 3 DAGs
+[2026-01-13T16:42:29.207+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:42:29.207+0000] {dag.py:3954} INFO - Setting next_dagrun for data_quality to None, run_after=None
+[2026-01-13T16:42:29.213+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:42:29.213+0000] {dag.py:3954} INFO - Setting next_dagrun for produce_json to 2026-01-13 08:30:00+00:00, run_after=2026-01-14 08:30:00+00:00
+[2026-01-13T16:42:29.215+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:42:29.215+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
+[2026-01-13T16:42:29.306+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.302 seconds
+[2026-01-13T16:42:59.598+0000] {processor.py:161} INFO - Started process (PID=390) to work on /opt/airflow/dags/main.py
+[2026-01-13T16:42:59.599+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2026-01-13T16:42:59.602+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:42:59.602+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2026-01-13T16:42:59.753+0000] {processor.py:840} INFO - DAG(s) 'update_db', 'produce_json', 'data_quality' retrieved from /opt/airflow/dags/main.py
+[2026-01-13T16:42:59.867+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:42:59.867+0000] {dag.py:3096} INFO - Sync 3 DAGs
+[2026-01-13T16:42:59.925+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:42:59.924+0000] {dag.py:3954} INFO - Setting next_dagrun for data_quality to None, run_after=None
+[2026-01-13T16:42:59.940+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:42:59.940+0000] {dag.py:3954} INFO - Setting next_dagrun for produce_json to 2026-01-13 08:30:00+00:00, run_after=2026-01-14 08:30:00+00:00
+[2026-01-13T16:42:59.946+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:42:59.945+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
+[2026-01-13T16:43:00.022+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.432 seconds
+[2026-01-13T16:43:30.440+0000] {processor.py:161} INFO - Started process (PID=397) to work on /opt/airflow/dags/main.py
+[2026-01-13T16:43:30.442+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2026-01-13T16:43:30.445+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:43:30.445+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2026-01-13T16:43:30.597+0000] {processor.py:840} INFO - DAG(s) 'produce_json', 'update_db', 'data_quality' retrieved from /opt/airflow/dags/main.py
+[2026-01-13T16:43:30.635+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:43:30.634+0000] {dag.py:3096} INFO - Sync 3 DAGs
+[2026-01-13T16:43:30.672+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:43:30.672+0000] {dag.py:3954} INFO - Setting next_dagrun for data_quality to None, run_after=None
+[2026-01-13T16:43:30.679+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:43:30.678+0000] {dag.py:3954} INFO - Setting next_dagrun for produce_json to 2026-01-13 08:30:00+00:00, run_after=2026-01-14 08:30:00+00:00
+[2026-01-13T16:43:30.681+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:43:30.681+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
+[2026-01-13T16:43:30.707+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.277 seconds
+[2026-01-13T16:44:00.788+0000] {processor.py:161} INFO - Started process (PID=404) to work on /opt/airflow/dags/main.py
+[2026-01-13T16:44:00.789+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2026-01-13T16:44:00.797+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:44:00.796+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2026-01-13T16:44:00.993+0000] {processor.py:840} INFO - DAG(s) 'data_quality', 'update_db', 'produce_json' retrieved from /opt/airflow/dags/main.py
+[2026-01-13T16:44:01.043+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:44:01.043+0000] {dag.py:3096} INFO - Sync 3 DAGs
+[2026-01-13T16:44:01.079+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:44:01.079+0000] {dag.py:3954} INFO - Setting next_dagrun for data_quality to None, run_after=None
+[2026-01-13T16:44:01.090+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:44:01.090+0000] {dag.py:3954} INFO - Setting next_dagrun for produce_json to 2026-01-13 08:30:00+00:00, run_after=2026-01-14 08:30:00+00:00
+[2026-01-13T16:44:01.092+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:44:01.092+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
+[2026-01-13T16:44:01.137+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.360 seconds
+[2026-01-13T16:44:31.337+0000] {processor.py:161} INFO - Started process (PID=411) to work on /opt/airflow/dags/main.py
+[2026-01-13T16:44:31.339+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2026-01-13T16:44:31.342+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:44:31.341+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2026-01-13T16:44:31.479+0000] {processor.py:840} INFO - DAG(s) 'produce_json', 'update_db', 'data_quality' retrieved from /opt/airflow/dags/main.py
+[2026-01-13T16:44:31.515+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:44:31.515+0000] {dag.py:3096} INFO - Sync 3 DAGs
+[2026-01-13T16:44:31.540+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:44:31.540+0000] {dag.py:3954} INFO - Setting next_dagrun for data_quality to None, run_after=None
+[2026-01-13T16:44:31.547+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:44:31.547+0000] {dag.py:3954} INFO - Setting next_dagrun for produce_json to 2026-01-13 08:30:00+00:00, run_after=2026-01-14 08:30:00+00:00
+[2026-01-13T16:44:31.549+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:44:31.549+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
+[2026-01-13T16:44:31.574+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.246 seconds
+[2026-01-13T16:45:01.686+0000] {processor.py:161} INFO - Started process (PID=418) to work on /opt/airflow/dags/main.py
+[2026-01-13T16:45:01.688+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2026-01-13T16:45:01.690+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:45:01.690+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2026-01-13T16:45:01.829+0000] {processor.py:840} INFO - DAG(s) 'data_quality', 'update_db', 'produce_json' retrieved from /opt/airflow/dags/main.py
+[2026-01-13T16:45:01.875+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:45:01.875+0000] {dag.py:3096} INFO - Sync 3 DAGs
+[2026-01-13T16:45:01.902+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:45:01.902+0000] {dag.py:3954} INFO - Setting next_dagrun for data_quality to None, run_after=None
+[2026-01-13T16:45:01.910+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:45:01.909+0000] {dag.py:3954} INFO - Setting next_dagrun for produce_json to 2026-01-13 08:30:00+00:00, run_after=2026-01-14 08:30:00+00:00
+[2026-01-13T16:45:01.912+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:45:01.912+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
+[2026-01-13T16:45:01.939+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.263 seconds
+[2026-01-13T16:45:32.216+0000] {processor.py:161} INFO - Started process (PID=426) to work on /opt/airflow/dags/main.py
+[2026-01-13T16:45:32.218+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2026-01-13T16:45:32.220+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:45:32.220+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2026-01-13T16:45:32.395+0000] {processor.py:840} INFO - DAG(s) 'update_db', 'data_quality', 'produce_json' retrieved from /opt/airflow/dags/main.py
+[2026-01-13T16:45:32.449+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:45:32.448+0000] {dag.py:3096} INFO - Sync 3 DAGs
+[2026-01-13T16:45:32.473+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:45:32.473+0000] {dag.py:3954} INFO - Setting next_dagrun for data_quality to None, run_after=None
+[2026-01-13T16:45:32.479+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:45:32.479+0000] {dag.py:3954} INFO - Setting next_dagrun for produce_json to 2026-01-13 08:30:00+00:00, run_after=2026-01-14 08:30:00+00:00
+[2026-01-13T16:45:32.482+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:45:32.481+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
+[2026-01-13T16:45:32.508+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.301 seconds
+[2026-01-13T16:46:03.301+0000] {processor.py:161} INFO - Started process (PID=439) to work on /opt/airflow/dags/main.py
+[2026-01-13T16:46:03.302+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2026-01-13T16:46:03.305+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:46:03.305+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2026-01-13T16:46:03.444+0000] {processor.py:840} INFO - DAG(s) 'data_quality', 'produce_json', 'update_db' retrieved from /opt/airflow/dags/main.py
+[2026-01-13T16:46:03.480+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:46:03.480+0000] {dag.py:3096} INFO - Sync 3 DAGs
+[2026-01-13T16:46:03.511+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:46:03.510+0000] {dag.py:3954} INFO - Setting next_dagrun for data_quality to None, run_after=None
+[2026-01-13T16:46:03.517+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:46:03.517+0000] {dag.py:3954} INFO - Setting next_dagrun for produce_json to 2026-01-13 08:30:00+00:00, run_after=2026-01-14 08:30:00+00:00
+[2026-01-13T16:46:03.519+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:46:03.519+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
+[2026-01-13T16:46:03.544+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.251 seconds
+[2026-01-13T16:46:33.616+0000] {processor.py:161} INFO - Started process (PID=446) to work on /opt/airflow/dags/main.py
+[2026-01-13T16:46:33.618+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2026-01-13T16:46:33.620+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:46:33.620+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2026-01-13T16:46:33.761+0000] {processor.py:840} INFO - DAG(s) 'produce_json', 'data_quality', 'update_db' retrieved from /opt/airflow/dags/main.py
+[2026-01-13T16:46:33.802+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:46:33.802+0000] {dag.py:3096} INFO - Sync 3 DAGs
+[2026-01-13T16:46:33.830+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:46:33.830+0000] {dag.py:3954} INFO - Setting next_dagrun for data_quality to None, run_after=None
+[2026-01-13T16:46:33.837+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:46:33.837+0000] {dag.py:3954} INFO - Setting next_dagrun for produce_json to 2026-01-13 08:30:00+00:00, run_after=2026-01-14 08:30:00+00:00
+[2026-01-13T16:46:33.839+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:46:33.839+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
+[2026-01-13T16:46:33.862+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.262 seconds
+[2026-01-13T16:47:04.189+0000] {processor.py:161} INFO - Started process (PID=453) to work on /opt/airflow/dags/main.py
+[2026-01-13T16:47:04.251+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2026-01-13T16:47:04.255+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:04.254+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2026-01-13T16:47:04.420+0000] {processor.py:840} INFO - DAG(s) 'update_db', 'data_quality', 'produce_json' retrieved from /opt/airflow/dags/main.py
+[2026-01-13T16:47:04.464+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:04.464+0000] {dag.py:3096} INFO - Sync 3 DAGs
+[2026-01-13T16:47:04.492+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:04.492+0000] {dag.py:3954} INFO - Setting next_dagrun for data_quality to None, run_after=None
+[2026-01-13T16:47:04.499+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:04.498+0000] {dag.py:3954} INFO - Setting next_dagrun for produce_json to 2026-01-13 08:30:00+00:00, run_after=2026-01-14 08:30:00+00:00
+[2026-01-13T16:47:04.502+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:04.502+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
+[2026-01-13T16:47:04.531+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.353 seconds
+[2026-01-13T16:47:34.868+0000] {processor.py:161} INFO - Started process (PID=460) to work on /opt/airflow/dags/main.py
+[2026-01-13T16:47:34.870+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2026-01-13T16:47:34.873+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:34.872+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2026-01-13T16:47:35.003+0000] {processor.py:840} INFO - DAG(s) 'data_quality', 'update_db', 'produce_json' retrieved from /opt/airflow/dags/main.py
+[2026-01-13T16:47:35.044+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:35.043+0000] {dag.py:3096} INFO - Sync 3 DAGs
+[2026-01-13T16:47:35.071+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:35.071+0000] {dag.py:3954} INFO - Setting next_dagrun for data_quality to None, run_after=None
+[2026-01-13T16:47:35.080+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:35.080+0000] {dag.py:3954} INFO - Setting next_dagrun for produce_json to 2026-01-13 08:30:00+00:00, run_after=2026-01-14 08:30:00+00:00
+[2026-01-13T16:47:35.083+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:35.083+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
+[2026-01-13T16:47:35.110+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.259 seconds
+[2026-01-13T16:47:38.896+0000] {processor.py:161} INFO - Started process (PID=461) to work on /opt/airflow/dags/main.py
+[2026-01-13T16:47:38.897+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main.py for tasks to queue
+[2026-01-13T16:47:38.900+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:38.900+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main.py
+[2026-01-13T16:47:39.052+0000] {processor.py:840} INFO - DAG(s) 'data_quality', 'update_db', 'produce_json' retrieved from /opt/airflow/dags/main.py
+[2026-01-13T16:47:39.088+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:39.087+0000] {dag.py:3096} INFO - Sync 3 DAGs
+[2026-01-13T16:47:39.112+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:39.111+0000] {dag.py:3954} INFO - Setting next_dagrun for data_quality to None, run_after=None
+[2026-01-13T16:47:39.119+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:39.119+0000] {dag.py:3954} INFO - Setting next_dagrun for produce_json to 2026-01-13 08:30:00+00:00, run_after=2026-01-14 08:30:00+00:00
+[2026-01-13T16:47:39.121+0000] {logging_mixin.py:188} INFO - [2026-01-13T16:47:39.121+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
+[2026-01-13T16:47:39.153+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main.py took 0.266 seconds

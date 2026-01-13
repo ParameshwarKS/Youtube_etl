@@ -26,10 +26,10 @@ staging_schema = "staging"
 core_schema = "core"
 
 with DAG(
-    dag_id = 'produce_json',
+    dag_id = "produce_json",
     default_args = default_args,
-    description = 'DAG to produce JSON file with raw data',
-    schedule = '0 14 * * *',
+    description = "DAG to produce JSON file with raw data",
+    schedule = "0 14 * * *",
     catchup = False, 
 ) as dag_produce:
     
@@ -46,9 +46,9 @@ with DAG(
     playlist_id >> video_ids >> extracted_data >> save_to_json_task >> trigger_update_db
 
 with DAG(
-    dag_id = 'update_db',
+    dag_id = "update_db",
     default_args = default_args,
-    description = 'DAG to process JSON file and insert data into stagging and core schemas',
+    description = "DAG to process JSON file and insert data into stagging and core schemas",
     schedule = None,
     catchup = False, 
 ) as dag_update:
@@ -64,9 +64,9 @@ with DAG(
     update_staging >> update_core >> trigger_data_quality
 
 with DAG(
-    dag_id = 'data_quality',
+    dag_id = "data_quality",
     default_args = default_args,
-    description = 'DAG to check the data quality on both layers in the db',
+    description = "DAG to check the data quality on both layers in the db",
     schedule = None,
     catchup = False, 
 ) as dag_quality:
