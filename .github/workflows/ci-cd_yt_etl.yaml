@@ -2,12 +2,12 @@ name: CI-CD Pipeline
 
 on:
   push:
-    branches:
-      - main
-      - 'feature/*'
+      branches:
+        - main
+        - 'feature/*'
   pull_request:
-    branches:
-      - main
+      branches:
+        - main
   workflow_dispatch:
 
 jobs:
@@ -24,21 +24,21 @@ jobs:
               Dockerfile
               requirements.txt
       - name: Set up Docker Buildx
-        if: steps.changed-files-build.outputs.any_changed == 'true'
+        if: steps.changed-files-build.outputs.any_changed == 'true'  || github.event_name == 'workflow_dispatch'
         uses: docker/setup-buildx-action@v3
       - name: Login to DockerHub
-        if: steps.changed-files-build.outputs.any_changed == 'true'
+        if: steps.changed-files-build.outputs.any_changed == 'true'  || github.event_name == 'workflow_dispatch'
         uses: docker/login-action@v3
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Build and push Docker image
-        if: steps.changed-files-build.outputs.any_changed == 'true'
+        if: steps.changed-files-build.outputs.any_changed == 'true'  || github.event_name == 'workflow_dispatch'
         run: |
                 docker buildx build --push \
-                --tag ${{ vars.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_PASSWORD }}:latest \
-                --tag ${{ vars.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_PASSWORD }}:${{ github.sha }} \
-                .
+                  --tag ${{ vars.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_PASSWORD }}:latest \
+                  --tag ${{ vars.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_PASSWORD }}:${{ github.sha }} \
+                  .
   
     unit-and-integration-and-e2e-tests:
       runs-on: ubuntu-latest
@@ -69,32 +69,32 @@ jobs:
         DOCKERHUB_REPOSITORY: ${{ vars.DOCKERHUB_REPOSITORY }}
         DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
       steps: 
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Get changed files
-        id: changed-files-tests
-        uses: tj-actions/changed-files@v45
-        with:
-          files: |
-              dags/**
-              include/**
-              docker-compose.yaml
-      - name: Set up Docker Compose
-        if: steps.changed-files-tests.outputs.any_changed == 'true'
-        run: docker compose up -d
-      - name: Run Unit and Integration Tests
-        if: steps.changed-files-tests.outputs.any_changed == 'true'
-        run: docker exec -t airflow-worker sh -c "pytest tests/ -v"
-      - name: Run End-to-End DAG Tests
-        if: steps.changed-files-tests.outputs.any_changed == 'true'
-        run: |
-          DAG_NAMES=("produce_json" "update_db" "data_quality")
-          for DAG in "${DAG_NAMES[@]}"; do
-            docker exec -t airflow-worker sh -c "airflow dags test $DAG"
-          done
-      - name: Tear down Docker Compose
-        if: steps.changed-files-tests.outputs.any_changed == 'true'
-        run: docker compose down
+        - name: Checkout code
+          uses: actions/checkout@v4
+        - name: Get changed files
+          id: changed-files-tests
+          uses: tj-actions/changed-files@v45
+          with:
+            files: |
+                dags/**
+                include/**
+                docker-compose.yaml
+        - name: Set up Docker Compose
+          if: steps.changed-files-tests.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
+          run: docker compose up -d
+        - name: Run Unit and Integration Tests
+          if: steps.changed-files-tests.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
+          run: docker exec -t airflow-worker sh -c "pytest tests/ -v"
+        - name: Run End-to-End DAG Tests
+          if: steps.changed-files-tests.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
+          run: |
+            DAG_NAMES=("produce_json" "update_db" "data_quality")
+            for DAG in "${DAG_NAMES[@]}"; do
+              docker exec -t airflow-worker sh -c "airflow dags test $DAG"
+            done
+        - name: Tear down Docker Compose
+          if: steps.changed-files-tests.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
+          run: docker compose down
 
 
 
