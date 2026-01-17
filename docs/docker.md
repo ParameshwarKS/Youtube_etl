@@ -348,13 +348,6 @@ Used by:
 - YouTube ELT pipeline
 - Stores transformed analytics data
 
-### 🧠 Why This Script Is Important
-✔ Avoids manual database setup
-✔ Ensures repeatable environments
-✔ Supports CI/CD pipelines
-✔ Enforces database separation
-✔ Executes only once during container initialization
-
 ## ✅ Summary
 
 The Docker Compose configuration provides:
@@ -369,3 +362,11 @@ The Dockerfile helps to:
 - Avoids dependency drift across environments
 - CI/CD friendly (immutable images)
 - Faster container startup (dependencies baked into image)
+
+The Postgres init script is used to:
+- Creates the necessary databases when PostgreSQL container starts
+- Avoids manual database setup
+- Ensures repeatable environments
+- Supports CI/CD pipelines
+- Enforces database separation
+- Executes only once during container initialization
