@@ -255,6 +255,106 @@ RUN pip install --no-cache-dir "apache-airflow==${AIRFLOW_VERSION}" -r /requirem
 - Version consistency
 - Dependency resolution compatibility
 
+## 🐘 PostgreSQL Initialization Script
+This Bash script is executed automatically when the PostgreSQL container starts.
+Its purpose is to create multiple databases and users required by the Airflow ecosystem and the ELT pipeline.
+
+This script is mounted into:
+```yaml
+volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+      - ./docker/postgres/init-multiple-databases.sh:/docker-entrypoint-initdb.d/init-multiple-databases.sh
+```
+
+### 📌 Script Content
+```bash
+#!/bin/bash
+```
+**Shebang**
+- Tells the system to execute the script using Bash
+
+### ⚠️ Strict Mode
+```bash
+set -e
+set -u
+```
+What these do:
+- set -e → Exit immediately if any command fails
+- set -u → Treat unset variables as an error
+
+✔ Prevents silent failures
+✔ Makes script safer and predictable
+
+### 🔧 Function: `create_user_and_database`
+**Function Parameters**
+```bash
+local database=$1
+local username=$2
+local password=$3
+```
+
+| Argument | Meaning       |
+| -------- | ------------- |
+| `$1`     | Database name |
+| `$2`     | Username      |
+| `$3`     | Password      |
+
+### PostgreSQL Commands Execution
+```bash
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
+```
+**Explanation:**
+- psql → PostgreSQL command-line client
+- ON_ERROR_STOP=1 → Stop execution if any SQL command fails
+- --username "$POSTGRES_USER" → Connects using the default superuser
+- <<-EOSQL → Here-document to execute multiple SQL statements
+
+**SQL Statements**
+```bash
+CREATE USER $username WITH PASSWORD '$password';
+CREATE DATABASE $database;
+GRANT ALL PRIVILEGES ON DATABASE $database TO $username;
+```
+
+What each line does:
+- Creates a new PostgreSQL user
+- Creates a new database
+- Grants full access of the database to the user
+This ensures role-based isolation.
+
+### 🗄 Database Creation Calls
+**Metadata Database**
+```bash
+create_user_and_database  $METADATA_DATABASE_NAME  $METADATA_DATABASE_USERNAME  $METADATA_DATABASE_PASSWORD
+```
+Used by:
+- Airflow scheduler
+- Airflow webserver
+- Stores DAG metadata and task states
+
+**Celery Result Backend Database**
+```bash
+create_user_and_database  $CELERY_BACKEND_NAME  $CELERY_BACKEND_USERNAME  $CELERY_BACKEND_PASSWORD
+```
+Used by:
+- CeleryExecutor
+- Stores task execution results
+
+**ELT Target Database**
+```bash
+create_user_and_database  $ELT_DATABASE_NAME  $ELT_DATABASE_USERNAME  $ELT_DATABASE_PASSWORD
+```
+Used by:
+- YouTube ELT pipeline
+- Stores transformed analytics data
+
+### 🧠 Why This Script Is Important
+✔ Avoids manual database setup
+✔ Ensures repeatable environments
+✔ Supports CI/CD pipelines
+✔ Enforces database separation
+✔ Executes only once during container initialization
+
 ## ✅ Summary
 
 The Docker Compose configuration provides:
