@@ -25,6 +25,7 @@ conn = hook.get_conn()
 ```
 `hook.get_conn()` returns a psycopg2 connection object
 
+
 ```python
 cur = conn.cursor(cursor_factory=RealDictCursor)
 ```
@@ -45,5 +46,7 @@ def create_schema(schema):
     close_conn_cursor(conn,cur)
 ```
 `schema` is passed as an argument to the above function which can take the value as `staging` or `core`. 
+
+<img width="1382" height="179" alt="image" src="https://github.com/user-attachments/assets/a03b0dcb-4031-447c-b74c-ffa9e5f0064e" />
 
 
