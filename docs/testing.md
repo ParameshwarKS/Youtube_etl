@@ -1,5 +1,6 @@
 # Data Quality, Integration and Unit testing
 
+## Data Quality Checks
 We use SODA to perform few data quality checks on the data that is loaded into the database. Below are the checks which we perform:
 1) Check if there are zero nulls in the column video_id
 2) Check if there are no duplicates for the column video_id
@@ -73,4 +74,43 @@ def yt_elt_data_quality(schema):
     except Exception as e:
         logger.error(f"Error running data quality check for schema: {schema}")
         raise e
+```
+
+## Integration Checks
+- We check if the api that we are using to pull the data, if it is responding correctly by checking the response status.
+- We check if the connection with the database is established properly and the cursor which we are using to interact with the database is responding properly.
+
+### Python function to check for the api response
+```python
+def test_youtube_api_response(airflow_variable):
+    api_key = airflow_variable("api_key")
+    channel_handle = airflow_variable("channel_handle")
+
+    url = f"https://youtube.googleapis.com/youtube/v3/channels?part=contentDetails&forHandle={channel_handle}&key={api_key}"
+
+    try:
+        response = requests.get(url)
+        assert response.status_code == 200
+    except requests.RequestException as e:
+        pytest.fail(f"Request to Youtube API failed: {e}")
+```
+
+### Python function to check for the database connection
+```python
+def test_real_postgres_connection(real_postgres_connection):
+    cursor = None
+
+    try:
+        cursor = real_postgres_connection.cursor()
+        cursor.execute("SELECT 1;")
+        result = cursor.fetchone()
+
+        assert result[0] == 1
+
+    except psycopg2.Error as e:
+        pytest.fail(f"Database query failed: {e}")
+
+    finally:
+        if cursor is not None:
+            cursor.close()
 ```
