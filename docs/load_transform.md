@@ -137,4 +137,121 @@ def transform_data(row):
 ```
 The function transform_data takes a row as an argument and returns the transformed row, hence to transform the complete table the function needs to be called iteratively.
 
+## Insert, Update & Delete
+- When a video_id doesn't exists in the table, the record will be inserted.
+- When a video_id is already present in the table, the record will be updated.
+- When a video_id is present in the table but not in the json, the record will be delete from the table.
+
+***Function to insert a row***
+```python
+def insert_rows(cur,conn,schema,row):
+    try:
+        if schema == "staging":
+            video_id = "video_id"
+
+            cur.execute(
+                f"""INSERT INTO {schema}.{table} (
+                    "Video_ID",
+                    "Video_Title",
+                    "Upload_Date",
+                    "Duration",
+                    "Video_Views",
+                    "Likes_Count",
+                    "Comments_Count"
+                )
+                VALUES (%(video_id)s, %(title)s, %(publishedAt)s, %(duration)s, %(viewCount)s, %(likeCount)s, %(commentCount)s);""",
+                row
+            )
+
+        else:
+            video_id = 'Video_ID'
+            cur.execute(
+                f"""INSERT INTO {schema}.{table} (
+                    "Video_ID",
+                    "Video_Title",
+                    "Upload_Date",
+                    "Duration",
+                    "Video_Type",
+                    "Video_Views",
+                    "Likes_Count",
+                    "Comments_Count"
+                )
+                VALUES (%(Video_ID)s, %(Video_Title)s, %(Upload_Date)s, %(Duration)s, %(Video_Type)s, %(Video_Views)s, %(Likes_Count)s, %(Comments_Count)s);""",
+                row
+            )
+        conn.commit()
+        logger.info(f"Inserted row with Video_ID: {row[video_id]}")
+    
+    except Exception as e:
+        logger.error(f"Error inserting row with Video_ID: {row[video_id]}")
+        raise e
+```
+***Function to update a row***
+```python
+def update_rows(cur,conn,schema,row):
+    try:
+        # staging
+        if schema == "staging":
+            video_id = "video_id"
+            upload_date = "publishedAt"
+            video_title = "title"
+            video_views = "viewCount"
+            likes_count = "likeCount"
+            comments_count = "commentCount"
+        # core
+        else:
+            video_id = "Video_ID"
+            upload_date = "Upload_Date"
+            video_title = "Video_Title"
+            video_views = "Video_Views"
+            likes_count = "Likes_Count"
+            comments_count = "Comments_Count"
+        
+        cur.execute(
+            f"""
+            UPDATE {schema}.{table}
+            SET "Video_Title" = %({video_title})s,
+                "Video_Views" = %({video_views})s, 
+                "Likes_Count" = %({likes_count})s, 
+                "Comments_Count" = %({comments_count})s
+            WHERE "Video_ID" = %({video_id})s AND "Upload_Date" = %({upload_date})s;
+            """,
+            row
+        )
+        conn.commit()
+        logger.info(f"Updated row with Video_ID: {row[video_id]}")
+
+    except Exception as e:
+        logger.error(f"Error updating row with Video_ID: {row[video_id]}")
+        raise e
+```
+***Function to delete a row***
+```python
+def delete_rows(cur,conn,schema,ids_to_delete):
+    try:
+        ids_to_delete = f"""{', '.join(f"'{id}'" for id in ids_to_delete)}"""
+
+        cur.execute(
+            f"""
+            DELETE FROM {schema}.{table}
+            where "Video_ID" in ({ids_to_delete});"""
+        )
+        cur.commit()
+        logger.info(f"Deleted row with Video_ID: {ids_to_delete}")
+    except Exception as e:
+        logger.error(f"Error updating row with Video_ID: {row[video_id]}")
+        raise e
+```
+
+To check which video_ids are present in the table we need to a function that help us to extract all the video_ids in the table and those extracted video_ids are required to compare with the video_ids in the json file.
+
+***Function to extract the video_ids***
+```python
+def get_video_ids(cur,schema):
+    cur.execute(f"""SELECT "Video_ID" from {schema}.{table};""")
+    ids = cur.fetchall()
+    video_ids = [row["Video_ID"] for row in ids]
+    return video_ids
+```
+
 
