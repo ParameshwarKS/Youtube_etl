@@ -143,7 +143,7 @@ The function transform_data takes a row as an argument and returns the transform
 - When a video_id is already present in the table, the record will be updated.
 - When a video_id is present in the table but not in the json, the record will be delete from the table.
 
-***Function to insert a row***
+### Function to insert a row
 ```python
 def insert_rows(cur,conn,schema,row):
     try:
@@ -187,7 +187,7 @@ def insert_rows(cur,conn,schema,row):
         logger.error(f"Error inserting row with Video_ID: {row[video_id]}")
         raise e
 ```
-***Function to update a row***
+### Function to update a row
 ```python
 def update_rows(cur,conn,schema,row):
     try:
@@ -226,7 +226,7 @@ def update_rows(cur,conn,schema,row):
         logger.error(f"Error updating row with Video_ID: {row[video_id]}")
         raise e
 ```
-***Function to delete a row***
+### Function to delete a row
 ```python
 def delete_rows(cur,conn,schema,ids_to_delete):
     try:
@@ -246,7 +246,7 @@ def delete_rows(cur,conn,schema,ids_to_delete):
 
 To check which video_ids are present in the table we need to a function that help us to extract all the video_ids in the table and those extracted video_ids are required to compare with the video_ids in the json file.
 
-***Function to extract the video_ids***
+### Function to extract the video_ids
 ```python
 def get_video_ids(cur,schema):
     cur.execute(f"""SELECT "Video_ID" from {schema}.{table};""")
