@@ -1,4 +1,4 @@
-# Load and Transform
+# 🌟 Load and Transform
 This document provides the explaination for load and transformation part of the ETL process which is being performed in this project.
 
 ## Create schema and tables
