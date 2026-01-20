@@ -1,4 +1,4 @@
-# Data Quality, Integration and Unit testing
+# 🧪 Data Quality, Integration and Unit testing
 
 ## Data Quality Checks
 We use SODA to perform few data quality checks on the data that is loaded into the database. Below are the checks which we perform:
