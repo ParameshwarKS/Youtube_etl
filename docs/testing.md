@@ -114,3 +114,22 @@ def test_real_postgres_connection(real_postgres_connection):
         if cursor is not None:
             cursor.close()
 ```
+## Unit testing
+### Fixtures
+- @pytest.fixture is a Pytest feature used to set up and manage test dependencies.
+- It allows you to prepare data, objects, connections, or state before tests run and clean them up afterward.
+
+**Example:**
+```python
+@pytest.fixture
+def api_key():
+    with mock.patch.dict("os.environ", AIRFLOW_VAR_API_KEY="MOCK_KEY1234"):
+        yield Variable.get("API_KEY")
+```
+
+This fixture temporarily injects a fake API key into the environment, lets Airflow read it as a Variable, and then automatically cleans it up after the test. So, while the testing is done, temporarily the value of the API_KEY in the airflow variables is "MOCK_KEY1234". We can use an assert statement on top of this and check if the airflow variable is correctly pointed as shown below.
+
+```python
+def test_api_key(api_key):
+    assert api_key == "MOCK_KEY1234"
+```
